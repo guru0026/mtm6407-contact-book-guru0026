@@ -109,14 +109,14 @@
       }
     },
   
-    computed: {
-      action: function(){
-        return this.contacts.filter( contact => contact.genre === "Action" )
-      },
-      scifi: function(){
-        return this.contacts.filter( contact => contact.genre === "Science Fiction" )
-      },
-    },
+    // computed: {
+    //   action: function(){
+    //     return this.contacts.filter( contact => contact.genre === "Action" )
+    //   },
+    //   scifi: function(){
+    //     return this.contacts.filter( contact => contact.genre === "Science Fiction" )
+    //   },
+    // },
     created(){
       const storeItems = localStorage.getItem('items')
       if (storeItems){
