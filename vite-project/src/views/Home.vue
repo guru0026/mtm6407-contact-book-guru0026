@@ -9,7 +9,7 @@
           <router-link :to="`/details/${contact.id}`">
             <img src="/2.svg" alt="`${contact.id}`">
             <br>
-            <h2><strong> {{ contact.firstname }} </strong></h2>
+            <h2><strong> {{ contact.name }} </strong></h2>
             <button type="button" class="btn btn-warning rounded-4 "><strong>Edit</strong></button>
             <button type="button" class="btn btn-danger rounded-4 m-1"><strong>Delete</strong></button>
           </router-link> 
@@ -27,7 +27,7 @@
         contacts: [
             { 
               id: 1, 
-              firstname: "Bryce", 
+              name: "Bryce", 
               lastname: "Doty", 
               email: "brycerdoty@armycam.com",
               phone: "(953) 758-5806",
@@ -35,7 +35,7 @@
             },
             { 
               id: 2, 
-              firstname: "Harvey", 
+              name: "Harvey", 
               lastname: "Lacy", 
               email: "harveyelacy@rhyta.com",
               phone: "(909) 571-3595",
@@ -43,7 +43,7 @@
             },
             { 
               id: 3, 
-              firstname: "Paul", 
+              name: "Paul", 
               lastname: "Cartwright", 
               email: "paulccartwright@rhyta.com",
               phone: "(868) 379-4982",
@@ -51,7 +51,7 @@
             },
             { 
               id: 4, 
-              firstname: "Michael", 
+              name: "Michael", 
               lastname: "Stull",
               email: "michaeltstull@dayrep.com",
               phone: "(801) 429-7540",
@@ -59,7 +59,7 @@
             },
             { 
               id: 5, 
-              firstname: "Terrie", 
+              name: "Terrie", 
               lastname: "Couch", 
               genre: "terriercouch@rhyta.com",
               phone: "(735) 678-6389",
@@ -67,7 +67,7 @@
             },
             { 
               id: 6, 
-              firstname: "Susan", 
+              name: "Susan", 
               lastname: "Young", 
               email: "susanjyoung@armycam.com",
               phone: "(541) 732-0520",
@@ -75,7 +75,7 @@
             },
             { 
               id: 7, 
-              firstname: "Loretta", 
+              name: "Loretta", 
               lastname: "Reid",
               email: "lorettacreid@teleworm.us",
               phone: "(364) 974-5336",
@@ -83,7 +83,7 @@
             },
             { 
               id: 8, 
-              firstname: "Diane", 
+              name: "Diane", 
               lastname: "Cardwell", 
               email: "dianewcardwell@dayrep.com",
               phone: "(435) 412-1485",
@@ -91,7 +91,7 @@
             },
             { 
               id: 9, 
-              firstname: "Ernest", 
+              name: "Ernest", 
               lastname: "Clark", 
               email: "ernestwclark@dayrep.com",
               phone: "(453) 436-2352",
@@ -99,7 +99,7 @@
             },
             { 
               id: 10, 
-              firstname: "Nichole",
+              name: "Nichole",
               lastname: "Mercer", 
               email: "nicholebmercer@dayrep.com",
               phone: "(680) 572-8273",
