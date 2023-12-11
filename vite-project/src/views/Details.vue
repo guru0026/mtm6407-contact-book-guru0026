@@ -1,12 +1,37 @@
 <template>
     <div>
-        <h1>Here the details... id: <span @click="updateItem">{{ id }} </span> </h1>
-        <form @submit.prevent="updateItem">
-            <label for="name">Name:</label>
-            <input type="text" id="name" v-model="movie.name">
-        </form>
-        <p>{{ status }}</p>
-        <p>Movie: {{ movie.name }}</p>
+        <div class="container d-flex">
+            <h1>Contact Details</h1>
+            <span @click="updateItem"><button type="button" class="btn btn-success rounded-pill m-4 "><h2><strong>Save</strong></h2></button></span>
+        </div>
+        <div class="card rounded-5 m-1 p-5 border border-0 bg-warning-subtle">
+            <h2>
+            <strong>{{ contact.name }}</strong>
+            </h2>
+
+            <form @submit.prevent="updateItem">
+                <label for="name">Name:</label>
+                <input type="text" id="name" v-model="contact.name">
+            </form>
+            <form @submit.prevent="updateItem">
+                <label for="name">e-Mail:</label>
+                <input type="text" id="name" v-model="contact.genre">
+            </form>
+            <form @submit.prevent="updateItem">
+                <label for="name">Phone:</label>
+                <input type="text" id="name" v-model="contact.phone">
+            </form>
+            <form @submit.prevent="updateItem">
+                <label for="name">Company:</label>
+                <input type="text" id="name" v-model="contact.company">
+            </form>
+
+        </div>
+
+        <h2>
+            
+            
+        </h2>
     </div>
 </template>
 
@@ -17,20 +42,20 @@ export default {
     data(){
         return{
             status:'',
-            movie: '',
-            movies: ''
+            contact: '',
+            contacts: ''
         }
     },
     created(){
-        this.movies = JSON.parse(localStorage.getItem('items'))
-        if (this.movies){
-            this.movie = this.movies.find( item => item.id == this.id)
+        this.contacts = JSON.parse(localStorage.getItem('items'))
+        if (this.contacts){
+            this.contact = this.contacts.find( item => item.id == this.id)
         }
     },
     methods: {
             updateItem: function() {
-                localStorage.setItem('items', JSON.stringify( this.movies.map(movie => movie.id == this.id ? {...this.movie} : movie) ) )
-                this.status = "Movie updated..."
+                localStorage.setItem('items', JSON.stringify( this.contacts.map(contact => contact.id == this.id ? {...this.contact} : contact) ) )
+                this.status = "Contact updated..."
                 this.$router.push('/')
             }
         },

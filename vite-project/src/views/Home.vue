@@ -1,27 +1,19 @@
 <template>
-    <h1>Movies</h1>
-    <ol>
-        <li v-for="movie in movies" :key="movie.id">
-            <strong> {{ movie.name }} </strong> | {{ movie.genre }}
+  <div class="container-fluid d-flex">
+    <h1>Contacts</h1>
+    <button type="button" class="btn btn-success rounded-pill m-4 "><h2><strong>+ Add</strong></h2></button>
+  </div>
+    
+    <ol class="container d-flex flex-wrap">
+        <li class="card rounded-5 m-1 p-5 border border-0 bg-warning-subtle" v-for="contact in contacts" :key="contact.id">
+          <router-link :to="`/details/${contact.id}`">
+            <img src="/2.svg" alt="`${contact.id}`">
+            <br>
+            <h2><strong> {{ contact.name }} </strong></h2>
+            <button type="button" class="btn btn-warning rounded-4 "><strong>Edit</strong></button>
+            <button type="button" class="btn btn-danger rounded-4 m-1"><strong>Delete</strong></button>
+          </router-link> 
         </li>
-    </ol>
-  
-    <hr>
-  
-    <h2>Action Movies</h2>
-    <ol>
-        <li v-for="movie in action" :key="movie.id">
-            <router-link :to="`/details/${movie.id}`">
-                <strong>{{ movie.name }}</strong> | {{ movie.genre }}
-            </router-link> 
-        </li>
-    </ol>
-  
-    <hr>
-  
-    <h2>SciFi Movies</h2>
-    <ol>
-      <li v-for="movie in scifi" :key="movie.id"><strong>{{ movie.name }}</strong> | {{ movie.genre }}</li>
     </ol>
   
   
@@ -32,29 +24,98 @@
   export default {
     data: function() {
       return {
-        movies: [
-            { id: 1, name: "Inception", genre: "Science Fiction" },
-            { id: 2, name: "The Dark Knight", genre: "Action" },
-            { id: 3, name: "Pulp Fiction", genre: "Crime" },
-            { id: 4, name: "Redemption", genre: "Drama" },
-            { id: 5, name: "The Godfather", genre: "Crime" },
-            { id: 6, name: "Fight Club", genre: "Drama" },
-            { id: 7, name: "The Matrix", genre: "Science Fiction" },
-            { id: 8, name: "Goodfellas", genre: "Crime" },
-            { id: 9, name: "Interstellar", genre: "Science Fiction" },
-            { id: 10, name: "The Avengers", genre: "Action" }
+        contacts: [
+            { 
+              id: 1, 
+              name: "Bryce R. Doty", 
+              genre: "brycerdoty@armycam.com",
+              phone: "(953) 758-5806",
+              company: "Oranges Records & Tapes", 
+            },
+            { 
+              id: 2, 
+              name: "Harvey E. Lacy", 
+              genre: "harveyelacy@rhyta.com",
+              phone: "(909) 571-3595",
+              company: "WWW Realty"
+            },
+            { 
+              id: 3, 
+              name: "Paul C. Cartwright", 
+              genre: "paulccartwright@rhyta.com",
+              phone: "(868) 379-4982",
+              company: "Better Business Ideas and Services"
+            },
+            { 
+              id: 4, 
+              name: "Michael T. Stull", 
+              genre: "michaeltstull@dayrep.com",
+              phone: "(801) 429-7540",
+              company: "Coffey's Market" 
+            },
+            { 
+              id: 5, 
+              name: "Terrie R. Couch", 
+              genre: "terriercouch@rhyta.com",
+              phone: "(735) 678-6389",
+              company: "Muirhead's"  
+            },
+            { 
+              id: 6, 
+              name: "Susan J. Young", 
+              genre: "susanjyoung@armycam.com",
+              phone: "(541) 732-0520",
+              company: "John M. Smyth's Homemakers"  
+            },
+            { 
+              id: 7, 
+              name: "Loretta C. Reid", 
+              genre: "lorettacreid@teleworm.us",
+              phone: "(364) 974-5336",
+              company: "Total Serve"  
+            },
+            { 
+              id: 8, 
+              name: "Diane W. Cardwell", 
+              genre: "dianewcardwell@dayrep.com",
+              phone: "(435) 412-1485",
+              company: "E-zhe Source"  
+            },
+            { 
+              id: 9, 
+              name: "Ernest W. Clark", 
+              genre: "ernestwclark@dayrep.com",
+              phone: "(453) 436-2352",
+              company: "National Auto Parts"  
+            },
+            { 
+              id: 10, 
+              name: "Nichole B. Mercer", 
+              genre: "nicholebmercer@dayrep.com",
+              phone: "(680) 572-8273",
+              company: "Record World"  
+            }
         ]
       }
     },
   
     computed: {
       action: function(){
-        return this.movies.filter( movie => movie.genre === "Action" )
+        return this.contacts.filter( contact => contact.genre === "Action" )
       },
       scifi: function(){
-        return this.movies.filter( movie => movie.genre === "Science Fiction" )
+        return this.contacts.filter( contact => contact.genre === "Science Fiction" )
       },
+    },
+    created(){
+      const storeItems = localStorage.getItem('items')
+      if (storeItems){
+        this.contacts = JSON.parse(storeItems)
+      } else {
+        localStorage.setItem('items', JSON.stringify(this.contacts))
+      }
     }
   }
+  
   
   </script>
