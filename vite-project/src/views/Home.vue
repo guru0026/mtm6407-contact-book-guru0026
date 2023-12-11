@@ -27,7 +27,7 @@
         contacts: [
             { 
               id: 1, 
-              name: "Bryce", 
+              name: "Bruce", 
               lastname: "Doty", 
               email: "brycerdoty@armycam.com",
               phone: "(953) 758-5806",
